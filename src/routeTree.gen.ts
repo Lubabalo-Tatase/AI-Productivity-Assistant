@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as CloudRouteImport } from './routes/cloud'
+import { Route as CopilotRouteImport } from './routes/copilot'
+import { Route as EmailsRouteImport } from './routes/emails'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as ItSupportRouteImport } from './routes/it-support'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as LearningRouteImport } from './routes/learning'
+import { Route as MeetingsRouteImport } from './routes/meetings'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as TasksRouteImport } from './routes/tasks'
+import { Route as TicketsRouteImport } from './routes/tickets'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CloudRoute = CloudRouteImport.update({
+  id: '/cloud',
+  path: '/cloud',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotRoute = CopilotRouteImport.update({
+  id: '/copilot',
+  path: '/copilot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmailsRoute = EmailsRouteImport.update({
+  id: '/emails',
+  path: '/emails',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ItSupportRoute = ItSupportRouteImport.update({
+  id: '/it-support',
+  path: '/it-support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningRoute = LearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetingsRoute = MeetingsRouteImport.update({
+  id: '/meetings',
+  path: '/meetings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRoute = TasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TicketsRoute = TicketsRouteImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/cloud': typeof CloudRoute
+  '/copilot': typeof CopilotRoute
+  '/emails': typeof EmailsRoute
+  '/help': typeof HelpRoute
+  '/it-support': typeof ItSupportRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/learning': typeof LearningRoute
+  '/meetings': typeof MeetingsRoute
+  '/settings': typeof SettingsRoute
+  '/tasks': typeof TasksRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/cloud': typeof CloudRoute
+  '/copilot': typeof CopilotRoute
+  '/emails': typeof EmailsRoute
+  '/help': typeof HelpRoute
+  '/it-support': typeof ItSupportRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/learning': typeof LearningRoute
+  '/meetings': typeof MeetingsRoute
+  '/settings': typeof SettingsRoute
+  '/tasks': typeof TasksRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/cloud': typeof CloudRoute
+  '/copilot': typeof CopilotRoute
+  '/emails': typeof EmailsRoute
+  '/help': typeof HelpRoute
+  '/it-support': typeof ItSupportRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/learning': typeof LearningRoute
+  '/meetings': typeof MeetingsRoute
+  '/settings': typeof SettingsRoute
+  '/tasks': typeof TasksRoute
+  '/tickets': typeof TicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/cloud'
+    | '/copilot'
+    | '/emails'
+    | '/help'
+    | '/it-support'
+    | '/knowledge'
+    | '/learning'
+    | '/meetings'
+    | '/settings'
+    | '/tasks'
+    | '/tickets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/cloud'
+    | '/copilot'
+    | '/emails'
+    | '/help'
+    | '/it-support'
+    | '/knowledge'
+    | '/learning'
+    | '/meetings'
+    | '/settings'
+    | '/tasks'
+    | '/tickets'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/cloud'
+    | '/copilot'
+    | '/emails'
+    | '/help'
+    | '/it-support'
+    | '/knowledge'
+    | '/learning'
+    | '/meetings'
+    | '/settings'
+    | '/tasks'
+    | '/tickets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  CloudRoute: typeof CloudRoute
+  CopilotRoute: typeof CopilotRoute
+  EmailsRoute: typeof EmailsRoute
+  HelpRoute: typeof HelpRoute
+  ItSupportRoute: typeof ItSupportRoute
+  KnowledgeRoute: typeof KnowledgeRoute
+  LearningRoute: typeof LearningRoute
+  MeetingsRoute: typeof MeetingsRoute
+  SettingsRoute: typeof SettingsRoute
+  TasksRoute: typeof TasksRoute
+  TicketsRoute: typeof TicketsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cloud': {
+      id: '/cloud'
+      path: '/cloud'
+      fullPath: '/cloud'
+      preLoaderRoute: typeof CloudRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilot': {
+      id: '/copilot'
+      path: '/copilot'
+      fullPath: '/copilot'
+      preLoaderRoute: typeof CopilotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emails': {
+      id: '/emails'
+      path: '/emails'
+      fullPath: '/emails'
+      preLoaderRoute: typeof EmailsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/it-support': {
+      id: '/it-support'
+      path: '/it-support'
+      fullPath: '/it-support'
+      preLoaderRoute: typeof ItSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning': {
+      id: '/learning'
+      path: '/learning'
+      fullPath: '/learning'
+      preLoaderRoute: typeof LearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meetings': {
+      id: '/meetings'
+      path: '/meetings'
+      fullPath: '/meetings'
+      preLoaderRoute: typeof MeetingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks': {
+      id: '/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof TasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tickets': {
+      id: '/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof TicketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  CloudRoute: CloudRoute,
+  CopilotRoute: CopilotRoute,
+  EmailsRoute: EmailsRoute,
+  HelpRoute: HelpRoute,
+  ItSupportRoute: ItSupportRoute,
+  KnowledgeRoute: KnowledgeRoute,
+  LearningRoute: LearningRoute,
+  MeetingsRoute: MeetingsRoute,
+  SettingsRoute: SettingsRoute,
+  TasksRoute: TasksRoute,
+  TicketsRoute: TicketsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
