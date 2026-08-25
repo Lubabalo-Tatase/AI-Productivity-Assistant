@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CloudRouteImport } from './routes/cloud'
 import { Route as CopilotRouteImport } from './routes/copilot'
+import { Route as MeetingsRouteImport } from './routes/meetings'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as TicketsRouteImport } from './routes/tickets'
 
@@ -30,6 +31,11 @@ const CopilotRoute = CopilotRouteImport.update({
   path: '/copilot',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MeetingsRoute = MeetingsRouteImport.update({
+  id: '/meetings',
+  path: '/meetings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksRoute = TasksRouteImport.update({
   id: '/tasks',
   path: '/tasks',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cloud': typeof CloudRoute
   '/copilot': typeof CopilotRoute
+  '/meetings': typeof MeetingsRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cloud': typeof CloudRoute
   '/copilot': typeof CopilotRoute
+  '/meetings': typeof MeetingsRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -60,21 +68,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cloud': typeof CloudRoute
   '/copilot': typeof CopilotRoute
+  '/meetings': typeof MeetingsRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cloud' | '/copilot' | '/tasks' | '/tickets'
+  fullPaths: '/' | '/cloud' | '/copilot' | '/meetings' | '/tasks' | '/tickets'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cloud' | '/copilot' | '/tasks' | '/tickets'
-  id: '__root__' | '/' | '/cloud' | '/copilot' | '/tasks' | '/tickets'
+  to: '/' | '/cloud' | '/copilot' | '/meetings' | '/tasks' | '/tickets'
+  id:
+    | '__root__'
+    | '/'
+    | '/cloud'
+    | '/copilot'
+    | '/meetings'
+    | '/tasks'
+    | '/tickets'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CloudRoute: typeof CloudRoute
   CopilotRoute: typeof CopilotRoute
+  MeetingsRoute: typeof MeetingsRoute
   TasksRoute: typeof TasksRoute
   TicketsRoute: typeof TicketsRoute
 }
@@ -102,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CopilotRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/meetings': {
+      id: '/meetings'
+      path: '/meetings'
+      fullPath: '/meetings'
+      preLoaderRoute: typeof MeetingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks': {
       id: '/tasks'
       path: '/tasks'
@@ -123,6 +147,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CloudRoute: CloudRoute,
   CopilotRoute: CopilotRoute,
+  MeetingsRoute: MeetingsRoute,
   TasksRoute: TasksRoute,
   TicketsRoute: TicketsRoute,
 }
