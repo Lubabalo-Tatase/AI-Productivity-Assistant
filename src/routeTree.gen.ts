@@ -18,6 +18,7 @@ import { Route as ItSupportRouteImport } from './routes/it-support'
 import { Route as KnowledgeRouteImport } from './routes/knowledge'
 import { Route as LearningRouteImport } from './routes/learning'
 import { Route as MeetingsRouteImport } from './routes/meetings'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as TicketsRouteImport } from './routes/tickets'
 
@@ -66,6 +67,11 @@ const MeetingsRoute = MeetingsRouteImport.update({
   path: '/meetings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksRoute = TasksRouteImport.update({
   id: '/tasks',
   path: '/tasks',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/knowledge': typeof KnowledgeRoute
   '/learning': typeof LearningRoute
   '/meetings': typeof MeetingsRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/knowledge': typeof KnowledgeRoute
   '/learning': typeof LearningRoute
   '/meetings': typeof MeetingsRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/knowledge': typeof KnowledgeRoute
   '/learning': typeof LearningRoute
   '/meetings': typeof MeetingsRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/knowledge'
     | '/learning'
     | '/meetings'
+    | '/settings'
     | '/tasks'
     | '/tickets'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/knowledge'
     | '/learning'
     | '/meetings'
+    | '/settings'
     | '/tasks'
     | '/tickets'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/knowledge'
     | '/learning'
     | '/meetings'
+    | '/settings'
     | '/tasks'
     | '/tickets'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   KnowledgeRoute: typeof KnowledgeRoute
   LearningRoute: typeof LearningRoute
   MeetingsRoute: typeof MeetingsRoute
+  SettingsRoute: typeof SettingsRoute
   TasksRoute: typeof TasksRoute
   TicketsRoute: typeof TicketsRoute
 }
@@ -238,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MeetingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks': {
       id: '/tasks'
       path: '/tasks'
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   KnowledgeRoute: KnowledgeRoute,
   LearningRoute: LearningRoute,
   MeetingsRoute: MeetingsRoute,
+  SettingsRoute: SettingsRoute,
   TasksRoute: TasksRoute,
   TicketsRoute: TicketsRoute,
 }
