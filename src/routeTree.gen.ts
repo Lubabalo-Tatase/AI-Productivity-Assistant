@@ -14,6 +14,7 @@ import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as CloudRouteImport } from './routes/cloud'
 import { Route as CopilotRouteImport } from './routes/copilot'
 import { Route as EmailsRouteImport } from './routes/emails'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as ItSupportRouteImport } from './routes/it-support'
 import { Route as KnowledgeRouteImport } from './routes/knowledge'
 import { Route as LearningRouteImport } from './routes/learning'
@@ -45,6 +46,11 @@ const CopilotRoute = CopilotRouteImport.update({
 const EmailsRoute = EmailsRouteImport.update({
   id: '/emails',
   path: '/emails',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ItSupportRoute = ItSupportRouteImport.update({
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/cloud': typeof CloudRoute
   '/copilot': typeof CopilotRoute
   '/emails': typeof EmailsRoute
+  '/help': typeof HelpRoute
   '/it-support': typeof ItSupportRoute
   '/knowledge': typeof KnowledgeRoute
   '/learning': typeof LearningRoute
@@ -103,6 +110,7 @@ export interface FileRoutesByTo {
   '/cloud': typeof CloudRoute
   '/copilot': typeof CopilotRoute
   '/emails': typeof EmailsRoute
+  '/help': typeof HelpRoute
   '/it-support': typeof ItSupportRoute
   '/knowledge': typeof KnowledgeRoute
   '/learning': typeof LearningRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/cloud': typeof CloudRoute
   '/copilot': typeof CopilotRoute
   '/emails': typeof EmailsRoute
+  '/help': typeof HelpRoute
   '/it-support': typeof ItSupportRoute
   '/knowledge': typeof KnowledgeRoute
   '/learning': typeof LearningRoute
@@ -134,6 +143,7 @@ export interface FileRouteTypes {
     | '/cloud'
     | '/copilot'
     | '/emails'
+    | '/help'
     | '/it-support'
     | '/knowledge'
     | '/learning'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/cloud'
     | '/copilot'
     | '/emails'
+    | '/help'
     | '/it-support'
     | '/knowledge'
     | '/learning'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/cloud'
     | '/copilot'
     | '/emails'
+    | '/help'
     | '/it-support'
     | '/knowledge'
     | '/learning'
@@ -177,6 +189,7 @@ export interface RootRouteChildren {
   CloudRoute: typeof CloudRoute
   CopilotRoute: typeof CopilotRoute
   EmailsRoute: typeof EmailsRoute
+  HelpRoute: typeof HelpRoute
   ItSupportRoute: typeof ItSupportRoute
   KnowledgeRoute: typeof KnowledgeRoute
   LearningRoute: typeof LearningRoute
@@ -221,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/emails'
       fullPath: '/emails'
       preLoaderRoute: typeof EmailsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/it-support': {
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   CloudRoute: CloudRoute,
   CopilotRoute: CopilotRoute,
   EmailsRoute: EmailsRoute,
+  HelpRoute: HelpRoute,
   ItSupportRoute: ItSupportRoute,
   KnowledgeRoute: KnowledgeRoute,
   LearningRoute: LearningRoute,
