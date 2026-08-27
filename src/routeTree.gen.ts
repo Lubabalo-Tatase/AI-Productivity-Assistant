@@ -20,6 +20,7 @@ import { Route as KnowledgeRouteImport } from './routes/knowledge'
 import { Route as LearningRouteImport } from './routes/learning'
 import { Route as MeetingsRouteImport } from './routes/meetings'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as ShowcaseRouteImport } from './routes/showcase'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as TicketsRouteImport } from './routes/tickets'
 
@@ -78,6 +79,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShowcaseRoute = ShowcaseRouteImport.update({
+  id: '/showcase',
+  path: '/showcase',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TasksRoute = TasksRouteImport.update({
   id: '/tasks',
   path: '/tasks',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/learning': typeof LearningRoute
   '/meetings': typeof MeetingsRoute
   '/settings': typeof SettingsRoute
+  '/showcase': typeof ShowcaseRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/learning': typeof LearningRoute
   '/meetings': typeof MeetingsRoute
   '/settings': typeof SettingsRoute
+  '/showcase': typeof ShowcaseRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/learning': typeof LearningRoute
   '/meetings': typeof MeetingsRoute
   '/settings': typeof SettingsRoute
+  '/showcase': typeof ShowcaseRoute
   '/tasks': typeof TasksRoute
   '/tickets': typeof TicketsRoute
 }
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/learning'
     | '/meetings'
     | '/settings'
+    | '/showcase'
     | '/tasks'
     | '/tickets'
   fileRoutesByTo: FileRoutesByTo
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
     | '/learning'
     | '/meetings'
     | '/settings'
+    | '/showcase'
     | '/tasks'
     | '/tickets'
   id:
@@ -179,6 +190,7 @@ export interface FileRouteTypes {
     | '/learning'
     | '/meetings'
     | '/settings'
+    | '/showcase'
     | '/tasks'
     | '/tickets'
   fileRoutesById: FileRoutesById
@@ -195,6 +207,7 @@ export interface RootRouteChildren {
   LearningRoute: typeof LearningRoute
   MeetingsRoute: typeof MeetingsRoute
   SettingsRoute: typeof SettingsRoute
+  ShowcaseRoute: typeof ShowcaseRoute
   TasksRoute: typeof TasksRoute
   TicketsRoute: typeof TicketsRoute
 }
@@ -278,6 +291,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/showcase': {
+      id: '/showcase'
+      path: '/showcase'
+      fullPath: '/showcase'
+      preLoaderRoute: typeof ShowcaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tasks': {
       id: '/tasks'
       path: '/tasks'
@@ -307,6 +327,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearningRoute: LearningRoute,
   MeetingsRoute: MeetingsRoute,
   SettingsRoute: SettingsRoute,
+  ShowcaseRoute: ShowcaseRoute,
   TasksRoute: TasksRoute,
   TicketsRoute: TicketsRoute,
 }
