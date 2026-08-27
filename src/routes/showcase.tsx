@@ -78,7 +78,7 @@ function NetworkGraphic() {
     [70, 60],
     [90, 78],
   ];
-  const edges = [
+  const edges: [number, number][] = [
     [0, 1],
     [1, 2],
     [2, 3],
@@ -100,10 +100,10 @@ function NetworkGraphic() {
       {edges.map(([a, b], i) => (
         <line
           key={i}
-          x1={nodes[a][0]}
-          y1={nodes[a][1]}
-          x2={nodes[b][0]}
-          y2={nodes[b][1]}
+          x1={nodes[a]![0]}
+          y1={nodes[a]![1]}
+          x2={nodes[b]![0]}
+          y2={nodes[b]![1]}
           stroke="currentColor"
           strokeWidth="0.18"
           className="text-primary"
