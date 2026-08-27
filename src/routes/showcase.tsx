@@ -515,13 +515,13 @@ function ShowcasePage() {
           </span>
         </div>
         <span className="hidden text-xs text-muted-foreground sm:block">
-          {SLIDES[index].label}
+          {SLIDES[index]!.label}
         </span>
       </header>
 
       <section className="relative z-10 min-h-0 flex-1">
-        <div key={SLIDES[index].id} className="slide-enter h-full">
-          {SLIDES[index].node}
+        <div key={SLIDES[index]!.id} className="slide-enter h-full">
+          {SLIDES[index]!.node}
         </div>
       </section>
 
